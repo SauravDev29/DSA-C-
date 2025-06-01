@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Compile and Run C++ (Windows)",
+      "type": "shell",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "copy \"${file}\" \"${workspaceFolder}\\jspwTest.cpp\" && g++ \"${workspaceFolder}\\jspwTest.cpp\" -o \"${workspaceFolder}\\jspwTest.exe\" && \"${workspaceFolder}\\jspwTest.exe\" < \"${workspaceFolder}\\input.txt\" > \"${workspaceFolder}\\output.txt\" && del \"${workspaceFolder}\\jspwTest.exe\" && del \"${workspaceFolder}\\jspwTest.cpp\""
+      ],
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": {
+        "owner": "cpp",
+        "fileLocation": [
+          "relative",
+          "${workspaceRoot}"
+        ],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      }
+    }
+  ]
+}
